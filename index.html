@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cricket Team Maker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🏏Team Maker</h1>
+
+    <div class="section">
+        <input type="text" id="playerName" placeholder="Player Name" />
+        <select id="playerRole">
+          <option value="batsman">Batsman</option>
+          <option value="bowler">Bowler</option>
+          <option value="allrounder">Allrounder</option>
+        </select>
+        <button onclick="addPlayer()">➕ Add Player</button>
+    </div>
+
+    <div class="section">
+      <h2>Available Players</h2>
+      <ul id="playerList"></ul>
+    </div>
+
+    <div class="section">
+      <button onclick="resetAll()" style="background-color: red; color: white;">🔁 Reset All</button>
+    </div>
+
+    <div class="section">
+        <h2>Captain Selection Mode</h2>
+        <select id="captainMode" onchange="handleModeChange(this.value)">
+          <option value="auto">Auto (Random)</option>
+          <option value="manual">Manual</option>
+        </select>
+    </div>
+    
+    <!-- Auto Mode Section -->
+    <div class="section" id="autoMode">
+        <button onclick="selectRandomCaptains()">Pick Random Captains</button>
+    </div>
+    
+    <!-- Manual Mode Section -->
+    <div class="section" id="manualMode" style="display: none;">
+        <h3>Select 2 Players as Captains</h3>
+        <ul id="manualCaptainList"></ul>
+        <button onclick="confirmManualCaptains()">Confirm Captains</button>
+    </div>
+
+    <div class="section">
+      <p id="captains"></p>
+    </div>
+
+    <div id="teamStrengthA"></div>
+    <div id="teamStrengthB"></div>
+
+    <div class="section">
+      <button onclick="generateTeams()">Generate Teams</button>
+      <div class="teams">
+        <div>
+          <h3>Team A</h3>
+          <ul id="teamA"></ul>
+        </div>
+        <div>
+          <h3>Team B</h3>
+          <ul id="teamB"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
